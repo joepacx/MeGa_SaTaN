@@ -68,8 +68,15 @@ local function run(msg, matches)
      end
      if matches[1] == 'chatlist'then
        if is_admin(msg) and msg.to.type == 'chat' then
+<<<<<<< HEAD
          send_document("chat#id"..msg.from.id, "./groups/lists/listed_groups.txt", ok_cb, false)
        elseif msg.to.type ~= 'chat' then
+=======
+	 chat_list(msg)
+         send_document("chat#id"..msg.from.id, "./groups/lists/listed_groups.txt", ok_cb, false)
+       elseif msg.to.type ~= 'chat' then
+	 chat_list(msg)
+>>>>>>> origin/Test
          send_document("user#id"..msg.from.id, "./groups/lists/listed_groups.txt", ok_cb, false) 
        end      
      end
@@ -78,10 +85,17 @@ end
 
 return {
     patterns = {
+<<<<<<< HEAD
       "^(chats)$",
       "^(chatlist)$",
       "^(join) (.*)$",
       "^(kickme) (.*)$",
+=======
+      "^[/!](chats)$",
+      "^[/!](chatlist)$",
+      "^[/!](join) (.*)$",
+      "^[/!](kickme) (.*)$",
+>>>>>>> origin/Test
       "^!!tgservice (chat_add_user)$"
     },
     run = run,
